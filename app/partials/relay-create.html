@@ -1,0 +1,79 @@
+<h1 class="page-header">Zum Staffellauf anmelden</h1>
+<div class="row">
+  <div class="col-lg-8">
+    <progressbar value="55" class="progress-striped active">Fortschritt</progressbar>
+    <br />
+    <p>Bitte vervollständigen Sie die folgenden Informationen zur Anmeldung:</p> 
+    <div ng-show="hasErrors" class="relayForm" ng-include="'partials/registration-errors.html'"></div>
+  </div>
+  <div class="col-lg-8">
+    <form name="relayForm" ng-submit="submit()" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="isSaving">
+        <h3>Staffel</h3>     
+        <div class="well">
+          <div class="form-group">
+            <label class="control-label col-sm-4">
+              Lauf
+            </label>
+            <div class="input-group col-sm-4">
+              <p class="form-control-static">{{run.name}}</p>
+            </div>
+          </div>  
+          <div class="form-group" ng-class="{'has-error': errors.name}">
+            <label class="control-label col-sm-4">
+              Staffelname
+            </label>
+            <div class="input-group col-sm-4">
+              <input class="form-control" ng-model="relay.name" type="text">
+              <span class="help-block" ng-show="errors.name">{{(errors.name)[0]}}</span>
+            </div>
+          </div>        
+        </div>
+        <h3>Läufer</h3>     
+        <p>Bitte geben Sie die Anmeldedaten der einzelnen Läufer an.</p>
+        <div class="well">
+          <tabset justified="true" type="tabs">
+            <tab ng-repeat="enrollment in relay.enrollments_attributes" heading="{{'Läufer ' + ($index+1)}}">
+              <div ng-include="'partials/relay-enrollment-fields.html'"></div>
+            </tab>
+          </tabset>
+        </div>
+        <h3>Kontaktperson</h3>
+        <p>Bitte geben Sie die Kontaktdaten eines Ansprechpartners für die Staffel an.</p>
+        <div class="well">
+          <div ng-include="'partials/relay-contact-fields.html'"></div>
+          <hr />
+          <div class="form-group" ng-class="{'has-error': errors.agb}">
+            <label class="control-label col-sm-4" for="relay_agb">AGB</label>
+            <div class="input-group col-sm-7">
+              <div class="checkbox">
+                <label for="relay_agb">
+                  <input id="relay_agb" ng-model="relay.agb" type="checkbox"> Mit Ihrer Anmeldung akzeptieren Sie unsere Allgemeinen Geschäftsbedingungen und die Datenschutzerklärung
+                </label>
+              </div>   
+              <span class="help-block" ng-show="errors.agb">{{(errors.agb)[0]}}</span>
+            </div>
+          </div>
+          <div class="form-group" ng-class="{'has-error': errors.newsletter}">
+            <label class="control-label col-sm-4" for="enrollment_newsletter"></label>
+            <div class="input-group col-sm-7">
+              <div class="checkbox">
+                <label for="enrollment_newsletter">
+                  <input id="enrollment_newsletter" ng-model="relay.newsletter" type="checkbox"> Möchten Sie zukünftig über Neuigkeiten zum Ringelnatzlauf per E-Mail informiert werden?
+                </label>
+              </div>   
+              <span class="help-block" ng-show="errors.newsletter">{{(errors.newsletter)[0]}}</span>
+            </div>
+          </div>        
+        </div>
+        <hr />
+        <div class="form-group">
+          <div class="col-sm-6 col-sm-offset-4">
+            <button class="btn btn-success" type="submit">Staffel anmelden</button>&nbsp;oder&nbsp;
+            <a class="btn btn-default">Abbrechen</a>
+          </div>
+        </div>      
+      </fieldset>
+    </form>
+  </div>
+</div>

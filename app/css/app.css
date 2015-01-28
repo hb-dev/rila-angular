@@ -1,0 +1,70 @@
+.tab-content h3{
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+.overlayContainer { display: none;}
+.overlayBackground { top:0px; left:0px; padding-left:100px;position:absolute;z-index:1000;height:100%;width:100%;background-color:#808080;opacity:0.3;}
+.overlayContent { position:absolute;height: 100px;width: 300px;z-index:1000;text-align:center;}
+
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+
+.tab-content > .tab-pane {
+	padding-top: 20px
+}
+
+h3 {
+	font-size: 24px;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	margin-top: 50px;
+}
+
+.alert-danger {
+	margin-top: 30px;	
+}
+
+.relay-form .alert-danger {
+	margin-bottom: -10px;
+}
+
+.alert-danger ul {
+	padding-left: 0;
+}
+
+.alert-danger ul li {
+	list-style: none;
+}
+
+.table-responsive {
+	margin-top: 22px;
+}
+
+.placement label {
+	margin-right: 15px;	
+}
+
+
+@media only screen and (min-width : 992px) {
+	.placement {
+		text-align: right;
+	}
+}

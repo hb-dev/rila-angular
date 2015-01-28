@@ -1,0 +1,176 @@
+<h1 class="page-header">Zum Lauf anmelden</h1>
+<div class="row">
+  <div class="col-lg-8">
+    <progressbar value="55" class="progress-striped active">Fortschritt</progressbar>
+    <br />
+    <p>Bitte vervollständigen Sie die folgenden Informationen zur Anmeldung:</p>
+    <div ng-show="errors.base || responseStatus === 0" ng-include="'partials/registration-errors.html'"></div>  
+  </div>
+  <div class="col-lg-8">
+    <form name="form" ng-submit="submit()" class="form-horizontal" novalidate>
+      <fieldset ng-disabled="isSaving">
+        <h3>Angaben zum Läufer</h3>
+        <div class="well">
+          <div class="form-group">
+            <label class="control-label col-sm-4">
+              Lauf
+            </label>
+            <div class="input-group col-sm-4">
+              <p class="form-control-static">{{run.name}}</p>
+            </div>
+          </div>  
+          <hr />        
+          <div class="form-group" ng-class="{'has-error': errors.runner_title}">
+            <label class="control-label col-sm-4" for="enrollment_runner_title">
+              Titel
+            </label>
+            <div class="input-group col-sm-4">
+              <select class="form-control" id="enrollment_runner_title" ng-model="enrollment.runner_title" ng-options="title for title in titles"></select>
+              <span class="help-block" ng-show="errors.runner_title">{{(errors.runner_title)[0]}}</span>
+            </div>
+          </div>
+          <div class="form-group" ng-class="{'has-error': errors.runner_name}">
+            <label class="control-label col-sm-4" for="enrollment_runner_name">
+              Nachname
+            </label>
+            <div class="input-group col-sm-7">
+              <input class="form-control" id="enrollment_runner_name" ng-model="enrollment.runner_name" type="text">
+              <span class="help-block" ng-show="errors.runner_name">{{(errors.runner_name)[0]}}</span>
+            </div>
+          </div>
+          <div class="form-group" ng-class="{'has-error': errors.runner_firstname}">
+            <label class="control-label col-sm-4" for="enrollment_runner_firstname">
+              Vorname
+            </label>
+            <div class="input-group col-sm-7">
+              <input class="form-control" id="enrollment_runner_firstname" ng-model="enrollment.runner_firstname" type="text">
+              <span class="help-block" ng-show="errors.runner_firstname">{{(errors.runner_firstname)[0]}}</span>
+            </div>
+          </div>
+          <div class="form-group" ng-class="{'has-error': errors.runner_street}">
+            <label class="control-label col-sm-4" for="enrollment_runner_street">
+              Straße, Nr.
+            </label>
+            <div class="input-group col-sm-7">
+              <input class="form-control" id="enrollment_runner_street" ng-model="enrollment.runner_street" type="text">
+              <span class="help-block" ng-show="errors.runner_street">{{(errors.runner_street)[0]}}</span>
+            </div>
+          </div>
+          <div class="form-group" ng-class="{'has-error': errors.runner_zip}">
+            <label class="control-label col-sm-4" for="enrollment_runner_zip">
+              PLZ
+            </label>
+            <div class="input-group col-sm-4">
+              <input class="form-control" id="enrollment_runner_zip" ng-model="enrollment.runner_zip" type="text">
+              <span class="help-block" ng-show="errors.runner_zip">{{(errors.runner_zip)[0]}}</span>
+            </div>
+          </div>
+          <div class="form-group" ng-class="{'has-error': errors.runner_city}">
+            <label class="control-label col-sm-4" for="enrollment_runner_city">
+              Stadt
+            </label>
+            <div class="input-group col-sm-4">
+              <input class="form-control" id="enrollment_runner_city" ng-model="enrollment.runner_city" type="text">
+              <span class="help-block" ng-show="errors.runner_city">{{(errors.runner_city)[0]}}</span>
+            </div>
+          </div>
+          <div class="form-group" ng-class="{'has-error': errors.runner_country}">
+            <label class="control-label col-sm-4" for="enrollment_runner_country">
+              Land
+            </label>
+            <div class="input-group col-sm-4">
+              <country-select class="form-control" data-ng-model="enrollment.runner_country"></country-select>
+              <span class="help-block" ng-show="errors.runner_country">{{(errors.runner_country)[0]}}</span>
+            </div>
+          </div>
+          <div class="form-group" ng-class="{'has-error': errors.runner_gender}">
+            <label class="control-label col-sm-4" for="enrollment_runner_gender">
+              Geschlecht
+            </label>
+            <div class="input-group col-sm-4">
+              <select class="form-control" id="enrollment_runner_gender" ng-model="enrollment.runner_gender" ng-options="gender for gender in genders"></select>
+              <span class="help-block" ng-show="errors.runner_gender">{{(errors.runner_gender)[0]}}</span>
+            </div>
+          </div>
+          <div class="form-group" ng-class="{'has-error': errors.runner_date_of_birth}">
+            <label class="control-label col-sm-4" for="enrollment_runner_date_of_birth">
+              Geburtsdatum
+            </label>
+            <div class="input-group col-sm-4">
+              <div class="input-group">
+                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="enrollment.runner_date_of_birth" is-open="opened" max-date="maxDate" datepicker-options="dateOptions" show-button-bar="false" ng-required="true"/>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>              
+              </div>
+              <span class="help-block" ng-show="errors.runner_date_of_birth != ''">{{(errors.runner_date_of_birth)[0]}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="well">
+          <div class="form-group" ng-class="{'has-error': errors.runner_organisation}">
+            <label class="control-label col-sm-4" for="enrollment_runner_organisation">
+              Organisation
+            </label>
+            <div class="input-group col-sm-7">
+              <input class="form-control" id="enrollment_runner_organisation" ng-model="enrollment.runner_organisation" type="text">
+              <span class="help-block" ng-show="errors.runner_organisation">{{(errors.runner_organisation)[0]}}</span>
+              <span class="help-block">Firma, Verein, Kita, Schule, etc.</span>
+            </div>
+          </div>
+          <div class="form-group" ng-class="{'has-error': errors.runner_email}">
+            <label class="control-label col-sm-4" for="enrollment_runner_email">
+              E-Mail
+            </label>
+            <div class="input-group col-sm-7">
+              <div class="input-group">
+                <input class="form-control" id="enrollment_runner_email" ng-model="enrollment.runner_email" type="text">
+                <span class="input-group-addon">@</span>              
+              </div>
+              <span class="help-block" ng-show="errors.runner_email">{{(errors.runner_email)[0]}}</span>
+            </div>
+          </div>
+          <div ng-show="run.minis || run.kids" class="form-group" ng-class="{'has-error': errors.runner_contact}">
+            <label class="control-label col-sm-4" for="enrollment_runner_contact">
+              Kontakt
+            </label>
+            <div class="input-group col-sm-7">
+              <textarea class="form-control" id="enrollment_runner_contact" ng-model="enrollment.runner_contact"></textarea>
+              <span class="help-block" ng-show="errors.runner_contact">{{(errors.runner_contact)[0]}}</span>
+              <span class="help-block">Falls Sie ein Kind anmelden, geben Sie bitte zusätzlich Ihre Kontaktinformationen an.</span>
+            </div>
+          </div>
+          <hr />
+          <div class="form-group" ng-class="{'has-error': errors.agb}">
+            <label class="control-label col-sm-4" for="enrollment_agb">AGB</label>
+            <div class="input-group col-sm-7">
+              <div class="checkbox">
+                <label for="enrollment_agb">
+                  <input id="enrollment_agb" ng-model="enrollment.agb" type="checkbox"> Mit Ihrer Anmeldung akzeptieren Sie unsere Allgemeinen Geschäftsbedingungen und die Datenschutzerklärung
+                </label>
+              </div>   
+              <span class="help-block" ng-show="errors.agb">{{(errors.agb)[0]}}</span>
+            </div>
+          </div>
+          <div class="form-group" ng-class="{'has-error': errors.newsletter}">
+            <label class="control-label col-sm-4" for="enrollment_newsletter"></label>
+            <div class="input-group col-sm-7">
+              <div class="checkbox">
+                <label for="enrollment_newsletter">
+                  <input id="enrollment_newsletter" ng-model="enrollment.newsletter" type="checkbox"> Möchten Sie zukünftig über Neuigkeiten zum Ringelnatzlauf per E-Mail informiert werden?
+                </label>
+              </div>   
+              <span class="help-block" ng-show="errors.newsletter">{{(errors.newsletter)[0]}}</span>
+            </div>
+          </div>
+        </div>        
+        <div class="form-group">
+          <div class="col-sm-6 col-sm-offset-4">
+            <button class="btn btn-success" type="submit">Anmeldung abschließen</button>&nbsp;oder&nbsp;
+            <a class="btn btn-default">Abbrechen</a>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

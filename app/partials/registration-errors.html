@@ -1,0 +1,16 @@
+<div class="alert alert-danger alert-dismissible" role="alert">
+  <p><strong>Fehler!</strong> Bei der Anmeldung ist ein Fehler aufgetreten.</p>
+  <hr>
+  <ul>
+  	<li ng-repeat="(fieldname,error) in errors">
+  		<p ng-show="fieldname == 'enrollments.runner_name'"><strong>Läufer Name:</strong> {{error[0]}}</p>
+  		<p ng-show="fieldname == 'enrollments.runner_firstname'"><strong>Läufer Vorname:</strong> {{error[0]}}</p>
+  		<p ng-show="fieldname == 'enrollments.runner_date_of_birth'"><strong>Läufer Geburtsdatum:</strong> {{error[0]}}</p>
+      <p ng-show="fieldname == 'enrollments.runner_gender'"><strong>Läufer Geschlecht:</strong> {{error[0]}}</p>
+  		<p ng-show="fieldname == 'base'">{{error[0]}}</p>
+  	</li>
+  	<li ng-show="responseStatus === 0">
+  		<p>Bitte versuchen Sie es zu einem späteren Zeitpunkt noch einmal.</p>
+  	</li>
+  </ul>
+</div>

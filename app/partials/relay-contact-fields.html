@@ -1,0 +1,80 @@
+<ng-form name="enrollmentFieldsForm">
+  <div class="form-group" ng-class="{'has-error': errors.contact_title}">
+    <label class="control-label col-sm-4">
+      Titel
+    </label>
+    <div class="input-group col-sm-4">
+      <select class="form-control" ng-model="relay.contact_title" ng-options="title for title in titles"></select>
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-error': errors.contact_name}">
+    <label class="control-label col-sm-4">
+      Nachname
+    </label>
+    <div class="input-group col-sm-4">
+      <input class="form-control" ng-model="relay.contact_name" type="text">
+      <span class="help-block" ng-show="errors.contact_name">{{(errors.contact_name)[0]}}</span>
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-error': errors.contact_firstname}">
+    <label class="control-label col-sm-4">
+      Vorname
+    </label>
+    <div class="input-group col-sm-4">
+      <input class="form-control" ng-model="relay.contact_firstname" type="text">
+      <span class="help-block" ng-show="errors.contact_firstname">{{(errors.contact_firstname)[0]}}</span>
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-error': errors.contact_street}">
+    <label class="control-label col-sm-4">
+      Straße
+    </label>
+    <div class="input-group col-sm-4">
+      <input class="form-control" ng-model="relay.contact_street" type="text">
+      <span class="help-block" ng-show="errors.contact_street">{{(errors.contact_street)[0]}}</span>
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-error': errors.contact_zip}">
+    <label class="control-label col-sm-4">
+      PLZ
+    </label>
+    <div class="input-group col-sm-4">
+      <input class="form-control" ng-model="relay.contact_zip" type="text">
+      <span class="help-block" ng-show="errors.contact_zip">{{(errors.contact_zip)[0]}}</span>
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-error': errors.contact_city}">
+    <label class="control-label col-sm-4">
+      Stadt
+    </label>
+    <div class="input-group col-sm-4">
+      <input class="form-control" ng-model="relay.contact_city" type="text">
+      <span class="help-block" ng-show="errors.contact_city">{{(errors.contact_city)[0]}}</span>
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-error': errors.contact_country}">
+    <label class="control-label col-sm-4">
+      Land
+    </label>
+    <div class="input-group col-sm-4">
+      <country-select class="form-control" data-ng-model="relay.contact_country"></country-select>
+      <span class="help-block" ng-show="errors.contact_country">{{(errors.contact_country)[0]}}</span>
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-error': errors.contact_email}">
+    <label class="control-label col-sm-4">
+      E-Mail
+    </label>
+    <div class="input-group col-sm-4">
+      <div class="input-group">
+        <input class="form-control" ng-model="relay.contact_email" type="text">
+        <span class="input-group-addon">@</span>              
+      </div>   
+      <span class="help-block" ng-show="errors.contact_email">{{(errors.contact_email)[0]}}</span>   
+    </div>
+  </div>
+</ng-form>
+
+
+
+

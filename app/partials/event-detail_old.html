@@ -1,0 +1,18 @@
+<h1 class="page-header">Ergebnisse</h1>
+<h2>{{theEvent.name}}</h2>
+</br>
+
+<tabset justified="true" type="pills">
+  <tab ng-repeat="run in runs | orderBy:name:reverse" heading="{{run.name}}">
+		<h3>{{run.name}}</h3>
+	  <div class="form-group">
+	    <div class="input-group col-sm-3">
+	      <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+	      <input type="text" class="form-control" placeholder="Suchen" ng-model="searchText">
+	    </div>
+	  </div>
+		<div class="table-responsive" ng-hide="run.relay || run.minis" ng-init="searchText=''" ng-include="'partials/event-detail-single.html'"></div>
+		<div class="table-responsive" ng-show="run.relay" ng-init="searchText=''" ng-include="'partials/event-detail-relay.html'"></div>
+		<div class="table-responsive" ng-show="run.minis" ng-init="searchText=''" ng-include="'partials/event-detail-minis.html'"></div>
+  </tab>
+</tabset>

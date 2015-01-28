@@ -1,0 +1,19 @@
+<h1 class="page-header">Für Lauf anmelden</h1>
+<div class="row">
+  <div class="col-sm-8">
+    <progressbar value="15" class="progress-striped active">Fortschritt</progressbar>  
+    <br />
+    <p>Bitte wählen Sie den Lauf aus, für den Sie sich anmelden möchten:</p>
+    <br />
+  </div>  
+</div>
+<div class="row">
+  <div class="col-sm-8">
+    <ul class="list-group">
+          <li ng-repeat="run in runs" class="list-group-item">
+            <a ng-show="run.relay" href="#/relays/new?run_id={{run.id}}">{{run.name}}</a>
+            <a ng-show="!run.relay" href="#/enrollments/new?run_id={{run.id}}">{{run.name}}</a>
+          </li>
+    </ul>
+  </div>
+</div>

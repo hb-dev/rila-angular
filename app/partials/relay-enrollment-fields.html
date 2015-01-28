@@ -1,0 +1,51 @@
+<ng-form name="enrollmentFieldsForm">
+  <div class="form-group">
+    <label class="control-label col-sm-4">
+      Titel
+    </label>
+    <div class="input-group col-sm-4">
+      <select class="form-control" ng-model="enrollment.runner_title" ng-options="title for title in titles"></select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-4">
+      Nachname
+    </label>
+    <div class="input-group col-sm-4">
+      <input class="form-control" ng-model="enrollment.runner_name" type="text">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-4">
+      Vorname
+    </label>
+    <div class="input-group col-sm-4">
+      <input class="form-control" ng-model="enrollment.runner_firstname" type="text">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-4">
+      Geschlecht
+    </label>
+    <div class="input-group col-sm-4">
+      <select class="form-control" ng-model="enrollment.runner_gender" ng-options="gender for gender in genders"></select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-4">
+      Geburtsdatum
+    </label>
+    <div class="input-group col-sm-4">
+      <div class="input-group">
+        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="enrollment.runner_date_of_birth" is-open="enrollment.opened" max-date="maxDate" datepicker-options="dateOptions" show-button-bar="false" ng-required="true"/>
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="open($event, enrollment)"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>              
+      </div>
+    </div>
+  </div>
+</ng-form>
+
+
+
+
