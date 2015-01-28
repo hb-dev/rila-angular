@@ -1,6 +1,6 @@
-Frontend Anmeldungen Ringelnatzlauf
+Front End - Anmeldungen Ringelnatzlauf
 
-- AngularJS
+- AngularJS, Rails API
 - Anmeldeformulare
 - Teilnehmer (aktueller Lauf)
 - Ergebnisse vergangener Läufe
