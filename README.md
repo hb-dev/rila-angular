@@ -1,4 +1,4 @@
-== Frontend Anmeldungen Ringelnatzlauf
+Frontend Anmeldungen Ringelnatzlauf
 
 - AngularJS
 - Anmeldeformulare
